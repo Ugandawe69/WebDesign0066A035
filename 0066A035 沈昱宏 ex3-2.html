@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ex3-2</title>
+
+    <style type="text/css">
+      /*-----menu css-------*/
+      .flex-container > div {
+        font-weight: bold;
+        color: white;
+        border: 2px solid RoyalBlue;
+        text-align: center;
+        background-color: RoyalBlue;
+        width: calc(100% / 6);
+      }
+      .flex-container > div ul {
+        position: absolute;
+        display: none;
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        border: 0;
+        width: calc(99% / 6);
+      }
+      .flex-container > div:hover ul {
+        display: block;
+      }
+      .flex-container > div ul li {
+        border-top: 2px solid RoyalBlue;
+        border-left: 2px solid RoyalBlue;
+        border-right: 2px solid RoyalBlue;
+        border-collapse: separate;
+        background-color: white;
+        color: black;
+      }
+      .flex-container > div ul li:hover {
+        background-color: PowderBlue;
+      }
+      a {
+        text-decoration: none;
+      }
+      .flex-container {
+        display: flex;
+        flex-wrap: nowrap;
+        width: 100%;
+        box-sizing: border-box;
+      }
+      @media only screen and (max-width: 600px) {
+        /* For mobile phones: */
+        .flex-container {
+          flex-wrap: wrap;
+        }
+
+        .flex-container > div {
+          width: 100%;
+        }
+
+        .flex-container > div ul {
+          width: 100%;
+        }
+
+        .flex-container > div:hover ul {
+          position: relative;
+        }
+      }
+      body {
+        font-family: Perpetua;
+      }
+      h1 {
+        text-align: center;
+        color: RoyalBlue;
+      }
+      iframe {
+        box-sizing: border-box;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Web Intelligence</h1>
+    <div class="flex-container">
+      <div>
+        JavaScript
+        <ul>
+          <li>
+            <a href="https://www.w3schools.com/js/default.asp" target="_blank"
+              >W3Schools</a
+            >
+          </li>
+          <li>
+            <a
+              href="https://developer.mozilla.org/zh-TW/docs/Web/JavaScript"
+              target="_blank"
+              >MDN</a
+            >
+          </li>
+          <li>
+            <a href="https://www.json.org/json-en.html" target="_blank">JSON</a>
+          </li>
+          <li></li>
+        </ul>
+      </div>
+      <div>
+        jQuery
+        <ul>
+          <li>
+            <a href="https://jquery.com/" target="_blank">jQuery.org</a>
+          </li>
+          <li>
+            <a href="https://jqueryui.com/" target="_blank">jQuery UI</a>
+          </li>
+          <li>
+            <a
+              href="https://www.w3schools.com/jquERy/default.asp"
+              target="_blank"
+              >jQuery Tutorial</a
+            >
+          </li>
+          <li></li>
+        </ul>
+      </div>
+      <div>
+        node.js
+        <ul>
+          <li>
+            <a href="https://www.w3schools.com/nodejs/" target="_blank"
+              >Node.js Tutorial</a
+            >
+          </li>
+          <li></li>
+        </ul>
+      </div>
+      <div>PHP</div>
+      <div>ASP.Net</div>
+      <div>Servlet/JSP</div>
+    </div>
+    <iframe src="0066A035 沈昱宏ex3-1.html" width="100%" height="550px">
+    </iframe>
+  </body>
+</html>

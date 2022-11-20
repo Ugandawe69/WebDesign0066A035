@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>ex4-2</title>
+    <meta charset="utf-8" />
+  </head>
+  <body>
+    <script>
+      let pokemon = 1;
+      let length = 5;
+      let pngName = "";
+      let state = 0;
+      pokemon = window.prompt(
+        "Please input the Pokemon you like (1=pikachu, 2=bulbasaur, 3=charmander, 4=squirtle, 5=random"
+      );
+      length = window.prompt("Please input the side length (>=1 and <=10):");
+      if (isFinite(pokemon) && isFinite(length)) {
+        length = Function("return " + length)();
+        pokemon = Function("return " + pokemon)();
+        state = 0;
+      } else {
+        state = 1;
+      }
+
+      if (state == 0) {
+        switch (pokemon) {
+          case 1:
+            pngName = "pikachu.png";
+            break;
+          case 2:
+            pngName = "bulbasaur.png";
+            break;
+          case 3:
+            pngName = "charmander.png";
+            break;
+          case 4:
+            pngName = "squirtle.png";
+            break;
+          case 5:
+            pngName = "random";
+            break;
+          default:
+            state = 1;
+            break;
+        }
+
+        if (pokemon == 5 && state == 0) {
+          for (let counter = 0; counter < length; counter++) {
+            document.writeln("<p>");
+            for (let counter = 0; counter < length; counter++) {
+              //-------random-----------------
+              let x = Math.floor(Math.random() * 4 + 1);
+              console.log(x);
+              switch (x) {
+                case 1:
+                  pngName = "pikachu.png";
+                  break;
+                case 2:
+                  pngName = "bulbasaur.png";
+                  break;
+                case 3:
+                  pngName = "charmander.png";
+                  break;
+                case 4:
+                  pngName = "squirtle.png";
+                  break;
+                default:
+                  pngName = "pikachu.png";
+                  break;
+              }
+              document.writeln(
+                '<img src="' + pngName + '" width="100px" height="100px">'
+              );
+            }
+            document.writeln("</p>");
+          }
+        } else if (state == 0) {
+          for (let counter = 0; counter < length; counter++) {
+            document.writeln("<p>");
+            for (let counter = 0; counter < length; counter++) {
+              document.writeln(
+                '<img src="' + pngName + '" width="100px" height="100px">'
+              );
+            }
+            document.writeln("</p>");
+          }
+        }
+      }
+      if (state == 1) {
+        window.alert("Wrong input! Please press [F5] to reload the page!");
+      }
+    </script>
+  </body>
+</html>

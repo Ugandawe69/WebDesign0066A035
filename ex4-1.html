@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>ex4-1</title>
+    <meta charset="utf-8" />
+    <style type="text/css">
+      .name {
+        color: firebrick;
+        font-weight: bolder;
+      }
+      .age {
+        color: navy;
+        font-weight: normal;
+        text-decoration: underline;
+      }
+      p {
+        font-family: Helvetica;
+        font-weight: bold;
+      }
+    </style>
+  </head>
+  <body>
+    <script type="text/javascript">
+      let name = "";
+      let birth;
+      let now = new Date();
+      let output = "";
+      let age;
+      //input----------------------
+      name = window.prompt("Please input your name:");
+      birth = window.prompt("Please input your birth year:");
+
+      //calculating age
+      let result = Function("return " + birth)();
+      age = now.getFullYear() - result;
+
+      //------output for console.log
+      output = "Hello, " + name + " !";
+      console.log(output);
+
+      //-----------html-------------------
+      document.writeln(
+        "<p>Hello, <span class='name'>" + name + "</span> !</p>"
+      );
+
+      //-----------if 'age' is illegal-----------
+      if (age <= 0 || age == NaN || age == Infinity || age == -Infinity) {
+        output = "Your age is a mystery!";
+        document.writeln("<p>" + output + "</p>");
+        console.log("Your input is incorrect!");
+      } else if (age == 1) {
+        output = "You are one year old!";
+        console.log(output);
+        document.writeln(
+          "<p>You are <span class='age'>one</span> year old!</p>"
+        );
+      } else {
+        output = "You are " + age + " years old!";
+        console.log(output);
+        document.writeln(
+          "<p>You are <span class='age'>" + age + "</span> years old!</p>"
+        );
+      }
+    </script>
+  </body>
+</html>

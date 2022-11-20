@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Basic DOM</title>
+    <style type="text/CSS">
+      @import url("http://fonts.googleapis.com/earlyaccess/cwtexyen.css");
+      h1 {
+        font-size: 50px;
+        font-family: cwTeXYen;
+      }
+
+      div {
+        font-family: Consolas;
+        display: inline;
+        font-size: 80px;
+        margin: 5px;
+        padding-left: 5px;
+        padding-right: 5px;
+        text-align: center;
+      }
+
+      div.number {
+        color: dodgerblue;
+        border: 1px solid gray;
+        min-width: 100px;
+      }
+    </style>
+  </head>
+
+  <body>
+    <h1>四則運算結果:</h1>
+    <div class="number" id="num1">Number1</div>
+    <div id="op">?</div>
+    <div class="number" id="num2">Number2</div>
+    <div>=</div>
+    <div class="number" id="result">Result</div>
+    <script>
+      let op;
+      op = window.prompt(
+        "請輸入算數運算子：1 代表加(+)、2 代表減(-)、3 代表乘(*)、4 代表除(/)"
+      );
+
+      switch (op) {
+        case "1":
+          break;
+        case "2":
+          break;
+        case "3":
+          break;
+        case "4":
+          break;
+        default:
+          window.alert("輸入有誤！選項自動設為 1。");
+          op = 1;
+          break;
+      }
+      op = parseInt(op);
+      let x1 = window.prompt("請輸入第一個數字:");
+      if (!isFinite(x1)) {
+        x1 = 1;
+        window.alert("輸入有誤！數值自動設定為1。");
+      }
+      x1 = parseInt(x1);
+      let x2 = window.prompt("請輸入第一個數字:");
+      if (!isFinite(x2)) {
+        x2 = 1;
+        window.alert("輸入有誤！數值自動設定為1。");
+      }
+      x2 = parseInt(x2);
+      document.getElementById("num1").innerHTML = x1;
+      document.getElementById("num2").innerHTML = x2;
+      switch (op) {
+        case 1:
+          document.getElementById("op").innerHTML = "+";
+          document.getElementById("result").innerHTML = x1 + x2;
+          break;
+        case 2:
+          document.getElementById("op").innerHTML = "-";
+          document.getElementById("result").innerHTML = x1 - x2;
+          break;
+        case 3:
+          document.getElementById("op").innerHTML = "*";
+          document.getElementById("result").innerHTML = x1 * x2;
+          break;
+        case 4:
+          document.getElementById("op").innerHTML = "/";
+          document.getElementById("result").innerHTML = x1 / x2;
+          break;
+        default:
+          document.getElementById("op").innerHTML = "+";
+          document.getElementById("result").innerHTML = x1 + x2;
+          break;
+      }
+    </script>
+  </body>
+</html>

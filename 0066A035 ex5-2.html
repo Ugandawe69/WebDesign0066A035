@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="uft-8" />
+    <title>ex5-2</title>
+    <style type="text/css">
+
+        img{
+            width: 50px ;
+            height: 50px ;
+        }
+    </style>
+  </head>
+  <body>
+    <script>
+        function start(){
+            let length = document.getElementById("length");
+            let triangle = document.getElementById("triangleButton");
+            let square = document.getElementById("squareButton");
+            let special = document.getElementById("specialButton");
+            length.setAttribute("value",5);
+            length.addEventListener("change",check,false);
+            triangle.addEventListener("click",drawTriangle,false);
+            square.addEventListener("click",drawSquare,false);
+            special.addEventListener("click",drawSpecial,false);
+
+        }
+        function check(){
+            let temp = document.getElementById("length").value;
+            if(!isFinite(temp)){
+                window.alert("Wrong input! set the input value as the default value 5! ");
+                document.getElementById("length").setAttribute("value",5);
+            }
+            else{
+                temp = parseInt(temp);
+                if(temp<0 || temp>10){
+                    window.alert("Wrong input! set the input value as the default value 5! ");
+                    document.getElementById("length").setAttribute("value",5);
+                }
+            }
+        }
+        function drawTriangle(){
+            const length = parseInt(document.getElementById("length").value);
+            let drawArea=document.getElementById("drawArea");
+            let output="";
+            for(let i = 0 ; i < length ; i++){
+                output+="<div>";
+                for(let j = 0 ; j < length ; j++){
+                    if(j < length - i - 1){
+                        output+='<img src="blank.png">';
+                    }
+                    else{
+                        output+='<img src="baseball.jpg">';
+                    }
+                }
+                output+="</div>"
+            }
+            drawArea.innerHTML=output;
+        }
+        function drawSquare(){
+            const length = parseInt(document.getElementById("length").value);
+            let drawArea=document.getElementById("drawArea");
+            let output="";
+            for(let i = 0 ; i < length ; i++){
+                output+="<div>";
+                for(let j = 0 ; j < length ; j++){
+                    output+='<img src="baseball.jpg">';
+                }
+                output+="</div>"
+            }
+            drawArea.innerHTML=output;
+        }
+        function drawSpecial(){
+            const length = parseInt(document.getElementById("length").value);
+            let drawArea=document.getElementById("drawArea");
+            let output="";
+            for(let i = 0 ; i < length ; i++){
+                output+="<div>";
+                for(let j = 0 ; j < length ; j++){
+                    let random = Math.floor(Math.random()*3);
+                    if(random==0){
+                        output+='<img src="baseball-x.jpg">';
+                    }
+                    else{
+                        output+='<img src="baseball.jpg">';
+                    }
+                }
+                output+="</div>"
+            }
+            drawArea.innerHTML=output;
+        }
+        window.addEventListener("load",start,false);
+    </script>
+    <p>
+      <label>Side Length( <= 10):<input id="length" type="number" ></label>
+      <input id="triangleButton" type="button" value="Draw Baseball Triangle">
+      <input id="squareButton" type="button" value="Draw Baseball Square">
+      <input id="specialButton" type="button" value="Draw Special Square">
+    </p>
+    <hr>
+    <div id="drawArea" >   
+    </div>
+  </body>
+</html>
