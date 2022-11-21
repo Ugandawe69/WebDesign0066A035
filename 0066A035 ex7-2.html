@@ -1,0 +1,81 @@
+https://Ugandawe69.github.io/WebDesign0066A035.0066A035 ex7-2.html
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Doraemon</title>
+    <style type="text/css">
+        @import url(https://fonts.googleapis.com/earlyaccess/notosanstc.css);
+
+        img {
+            width: 300px;
+            height: 300px;
+        }
+
+		div, input {
+            font-family: Noto Sans TC, Perpetua, serif;
+			width: 300px;            
+        }
+		
+		div {
+            color: darkblue;
+            text-align: center;	
+			font-size: 24px;			
+        }
+
+		input {
+			font-size: 18px;
+			font-weight: bold;
+		}
+    </style>
+    <script>
+        // TODO
+        const gadgetString = "任意門 時光機 竹蜻蜓 時光布 記憶麵包 縮小燈 翻譯蒟蒻 如果電話亭 穿透環 更衣照相機";
+        let itemArray = gadgetString.split(" ");
+        console.log(itemArray);
+        let rollButtton;
+        let msg;
+        let gadget;
+        let sound;
+        function start(){
+            rollButton = document.getElementById("play");
+            msg = document.getElementById("messages");
+            gadget = document.getElementById("gadget");
+            sound = document.getElementById("sound");
+            rollButton.addEventListener("click",clickButton,false);
+            sound.addEventListener("ended",roll,false);
+        }
+        function clickButton(){
+            sound.play();
+            gadget.setAttribute("src","blank.png");
+            msg.innerHTML ="";
+        }
+        function roll(){
+            let x = Math.floor(Math.random()*itemArray.length + 1);
+            if ( x < 10 ){
+                 gadget.setAttribute("src", "0" + x  + ".png");
+            }
+            else{
+                gadget.setAttribute("src",  x.toString  + ".png");
+            }
+            msg.innerHTML="您抽到" + itemArray[x - 1] + "!";
+        }
+        window.addEventListener("load",start,false);
+
+    </script>
+</head>
+
+<body>
+    <audio id = "sound" preload = "auto">
+        <source src = "doraemon.mp3" type="audio/mpeg">
+    </audio>
+    <img id="gadget" src="00.png" alt="gadget">
+    <form action="#">
+        <input id="play" type="button" value="抽道具">
+    </form>
+    <div id="messages">請按下Button抽出道具</div>
+</body>
+
+</html>
